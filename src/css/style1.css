@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+ 
+/* Bagian Hero */
+.hero-section {
+    background-image: url('../img/bagroun.png'); /* Ganti dengan gambar latar belakang Anda */
+    background-size: cover; /* Memastikan gambar mengisi seluruh area */
+    background-position: center; /* Menempatkan gambar di tengah */
+    height: 100vh; /* Mengatur tinggi penuh viewport */
+    display: flex; /* Menggunakan flexbox untuk penempatan teks */
+    flex-direction: column; /* Teks diatur secara vertikal */
+    justify-content: center; /* Memusatkan teks secara vertikal */
+    align-items: center; /* Memusatkan teks secara horizontal */
+    color: white; /* Warna teks */
+    text-align: center; /* Menengahkan teks */
+}
+.hero-text{
+    background-color: #57575717;
+}
+
+.hero-section h1 {
+    font-size: 48px; /* Ukuran font untuk judul */
+}
+
+.hero-section p {
+    font-size: 24px; /* Ukuran font untuk paragraf */
+}
+
+
+/*--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/

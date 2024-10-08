@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="src/ico/fubuki.png">
+    <link rel="stylesheet" href="src/css/style1.css">
+    <link rel="stylesheet" href="src/css/nav.css">
+    <link rel="stylesheet" href="src/css/card.css">
+    <link rel="stylesheet" href="src/css/slide.css">
+    <link rel="stylesheet" href="src/css/konten.css">
+</head>
+<body>
+    
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--/////////////////////////////////nav////////////////////////////////////////////////////////////////////////////////////////////////////-->
+         
+<!-- Navbar -->
+<nav>
+    <nav class="navbar">
+      <div class="logo"> <img src="src/ico/fubuki.png" alt="Logo" width="40" height="50"></div><a href="javascript:void(0);" class="icon" onclick="showsidebar()"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26"><path d="M80-240v-60h800v60H80Zm0-210v-60h800v60H80Zm0-210v-60h800v60H80Z"/> </svg></a>
+      <ul class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="login.html" class="btlogin">Sign in</a></li>
+      </ul>
+    </nav>
+
+    <!-- Sidebar (untuk mobile) -->
+    <div class="sidebar">
+      <ul>
+          <li><a onclick="hidesidebar()" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/> </svg> Close </a></li>
+          <li><a href="#home" onclick="hidesidebar()">Home</a></li>
+          <li><a href="#about" onclick="hidesidebar()">About</a></li>
+          <li><a href="#contact" onclick="hidesidebar()">Contact</a></li>
+          <li><a href="login.html" class="btlogin" onclick="hidesidebar()">Sign in</a></li>
+      </ul>
+    </div>
+</nav>
+<script src="src/js/nav.js"></script>
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+      <main>
+        <div class="hero-section">
+          <div class="hero-text">
+              <h1>Selamat Datang di Situs Kami</h1>
+              <p>Jelajahi informasi lebih lanjut.</p>
+          </div>
+      </div>
+      <br>
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="src/img/img1.png" alt="Slide 1" style="width:100%">
+          <div class="text">Caption Text</div>
+      </div>
+
+      <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="src/img/img2.png" alt="Slide 2" style="width:100%">
+          <div class="text">Caption Two</div>
+      </div>
+
+      <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="src/img/img3.png" alt="Slide 3" style="width:100%">
+          <div class="text">Caption Three</div>
+      </div>
+
+    
+    </div>
+
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+      <br>
+      <div class="card-container">
+        <div class="card">
+            <img src="src/img/bagroun.png" alt="Gambar Kartu">
+            <div class="card-content">
+                <h2 class="card-title">Judul Kartu</h2>
+                <p class="card-description">Ini adalah deskripsi singkat tentang kartu ini. Anda bisa menjelaskan lebih lanjut di sini.</p>
+                <a href="#" class="card-button">Tombol Aksi</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="src/img/img1.png" alt="Gambar Kartu">
+            <div class="card-content">
+                <h2 class="card-title">Judul Kartu</h2>
+                <p class="card-description">Ini adalah deskripsi singkat tentang kartu ini. Anda bisa menjelaskan lebih lanjut di sini.</p>
+                <a href="#" class="card-button">Tombol Aksi</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="src/img/img2.png" alt="Gambar Kartu">
+            <div class="card-content">
+                <h2 class="card-title">Judul Kartu</h2>
+                <p class="card-description">Ini adalah deskripsi singkat tentang kartu ini. Anda bisa menjelaskan lebih lanjut di sini.</p>
+                <a href="#" class="card-button">Tombol Aksi</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="src/img/img3.png" alt="Gambar Kartu">
+            <div class="card-content">
+                <h2 class="card-title">Judul Kartu</h2>
+                <p class="card-description">Ini adalah deskripsi singkat tentang kartu ini. Anda bisa menjelaskan lebih lanjut di sini.</p>
+                <a href="#" class="card-button">Tombol Aksi</a>
+            </div>
+        </div>
+    </div>
+    <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <div class="dasboard"> <!-- Mengganti kelas 'profile' menjadi 'dasboard' -->
+        <div class="page">
+            <div class="content">
+                <h2>Hello</h2>
+                <h1>I’M AKHMAD KHOIRUDIN</h1>
+                <p><b>Student STIKOM Poltek CIREBON Analitik Data & Developer</b></p>
+                <p>And Gemini who loves music, watching anime, reading manga novels, and 
+                <br>of course writing.</p>
+                <button class="bt hire">Hire me</button>
+                <button class="bt cv">Download CV</button>
+            </div>
+            <div class="image-section">
+                <img src="src/img/img1.png" alt="Profil Akhmad Khoirudin" class="profile-image">
+            </div>
+        </div>
+    </div>
+
+      </main>
+    
+    </div>
+    <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <footer>
+
+         </footer>
+    <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+   
+
+      <script src="src/js/script.js"  crossorigin="anonymous"></script>
+      <script src="src/js/slideshow.js"></script>
+  
+</body>
+</html>

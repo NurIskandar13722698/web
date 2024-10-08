@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+.logo img {
+    width: 80px;
+    height: 60px;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0; 
+}
+
+.nav-menu li {
+    margin-left: 20px;
+}
+
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 16px;
+    align-items: center;
+    display: flex;
+}
+
+.nav-menu li a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+}
+
+.btlogin {
+    border-radius: 12px;
+    padding: 2px 10px;
+    font-size: 15px;
+    margin-left: 9px;
+    background-color: #575757;
+}
+
+/* CSS untuk Sidebar */
+.sidebar {
+    display: none; /* Awalnya tidak ditampilkan */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    padding-top: 60px;
+    z-index: 1;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 8px 16px;
+}
+
+.sidebar li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    align-items: center;
+    display: flex;
+
+}
+.sidebar li a svg {
+    margin-right: 8px; /* Ruang antara ikon dan teks */
+}
+
+/* Media Query untuk tampilan responsif */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none; /* Sembunyikan menu pada layar kecil */
+    }
+    
+    .icon {
+        display: block; /* Tampilkan ikon untuk membuka sidebar pada layar kecil */
+    }
+}
+
+@media (min-width: 769px) {
+    .icon {
+        display: none; /* Sembunyikan ikon pada layar yang lebih besar */
+    }
+}

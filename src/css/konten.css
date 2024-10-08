@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222; /* Menambahkan latar belakang untuk kontras */
+}
+
+.dasboard {
+    display: flex; /* Menggunakan flexbox untuk tata letak */
+    justify-content: center; /* Memusatkan elemen di dalam dasboard */
+    margin-top: 100px; /* Memberikan jarak atas untuk dasboard */
+}
+
+.page {
+    display: flex; /* Menggunakan flexbox untuk tata letak */
+    align-items: center; /* Memusatkan item secara vertikal */
+    justify-content: start; /* Memisahkan teks dan gambar */
+    width: 150vh; /* Lebar maksimum dari kontainer */
+    height: 40vh; /* Tinggi maksimum dari kontainer */
+    padding: 20px;
+    /*background-color: #333;  Warna latar belakang untuk dasboard */
+    border-radius: 10px; /* Sudut melengkung untuk dasboard */
+}
+
+.content { /* Mengganti .dasboard menjadi .content untuk konten teks */
+    flex: 2; /* Mengatur ruang untuk konten teks */
+}
+
+.page h2 {
+    color: #3277c5;
+    padding-top: 20px; /* Mengurangi jarak atas */
+}
+
+.page h1 {
+    color: white;
+}
+
+.page p {
+    color: white;
+    font-size: 14px;
+}
+
+.page .cv {
+    background: transparent;
+    border: 1px solid #2d95f7;
+    border-radius: 20px;
+    color: #fff;
+    margin: 10px;
+}
+
+.bt {
+    width: 120px;
+    height: 45px;
+    border-radius: 20px;
+    border: none;
+    background: #2d95f7;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.bt:hover {
+    background: #fff;
+    color: #2d95f7;
+}
+
+.image-section {
+    flex: 1; /* Memberikan ruang untuk gambar */
+    margin-left: 20px; /* Menambahkan jarak antara teks dan gambar */
+    justify-content: end; /* Menyelaraskan gambar ke sebelah kanan */
+}
+
+.profile-image {
+    max-width: 100%; /* Membuat gambar responsif */
+    max-height: 100%; /* Membatasi tinggi maksimum agar tidak melebihi kontainer */
+    height: auto; /* Menjaga rasio aspek gambar */
+    border-radius: 8px; /* Sudut melengkung untuk gambar */
+}

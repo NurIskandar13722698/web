@@ -1,0 +1,77 @@
+/* /////untuk baris///// */
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Membuat kartu melanjutkan ke baris berikutnya jika ruang habis */
+    gap: 10px; /* Jarak antar kartu */
+    max-width: auto; /* Batas lebar maksimal */
+    padding: 20px;
+    background-color: #222; /* Background kontainer */
+    margin: 0 auto; /* Agar kontainer berada di tengah */
+}
+
+/* Responsif untuk layar yang lebih kecil */
+@media (max-width: 768px) {
+    .card {
+        width: 48%; /* 2 kartu per baris pada layar sedang */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%; /* 1 kartu per baris pada layar kecil */
+    }
+}
+
+/* /////untuk card///// */
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 380px;/* ukuran atas bawah card */
+    margin: 10px; /* Menambahkan margin antar kartu */
+    height: 420px; /* ukuran atas bawah card */
+    overflow: hidden; /* Untuk menghindari gambar keluar dari kartu */
+}
+
+.card img {
+    width: 100%;
+    height: 200px; /* Tinggi tetap untuk gambar */
+    object-fit: cover; /* Memastikan gambar tetap proporsional */
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.25em;
+    margin: 0 0 10px;
+    text-align: center;/*mengatur posisi teks h1*/
+
+    
+}
+
+.card-description {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 1.25em;
+}
+
+.card-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.card-button:hover {
+    background-color: #0056b3; /* Warna saat hover */
+}

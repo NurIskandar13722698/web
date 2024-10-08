@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Input ke Google Sheet</title>
+    <link rel="stylesheet" href="src/css/login.css">
+    <link rel="icon" type="image/x-icon" href="src/ico/logo.png">
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form id="dataForm">
+                <h1>Create Account</h1>
+                <span>or use your email for registration</span>
+                <input type="text" id="nama" placeholder="Name" required />
+                <input type="email" id="gmail" placeholder="Email" required />
+                <input type="text" id="user" placeholder="Username" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <input type="tel" id="no" placeholder="Nomor Telepon" required />
+                <button type="submit" class="btn btn-primary">Kirim</button>
+                <div id="result"></div> <!-- Tempat untuk menampilkan pesan hasil -->
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form id="loginForm">
+                <h1>Sign in</h1>
+                <span>or use your account</span>
+                <input type="text" id="loginEmail" placeholder="Email" required />
+                <input type="password" id="loginPassword" placeholder="Password" required />
+                <a href="#">Forgot your password?</a>
+                <button type="submit">Sign In</button>
+                <div id="loginResult"></div> <!-- Tempat untuk menampilkan pesan hasil login -->
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start your journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Menangani pengiriman form pendaftaran
+        document.getElementById('dataForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Mencegah refresh halaman
+
+    // Mendapatkan nilai dari form
+    var nama = document.getElementById('nama').value;
+    var gmail = document.getElementById('gmail').value;
+    var user = document.getElementById('user').value;
+    var password = document.getElementById('password').value;
+    var no = document.getElementById('no').value;
+
+    // URL API Google Apps Script Anda
+    var apiUrl = `https://script.google.com/macros/s/AKfycbx1_i6mJBJglgVWKa9QLON6YeKeeqANYMivoyht1YMxNqQPecvYWC_QGFsMQRnFSLgg/exec?action=register&nama=${encodeURIComponent(nama)}&gmail=${encodeURIComponent(gmail)}&user=${encodeURIComponent(user)}&password=${encodeURIComponent(password)}&no=${encodeURIComponent(no)}`;
+
+    // Mengirim permintaan GET ke API
+    fetch(apiUrl)
+        .then(response => response.text())
+        .then(data => {
+            // Menampilkan hasil ke elemen 'result'
+            document.getElementById('result').innerHTML = `<div class="alert">${data}</div>`;
+
+            // Jika respons mengandung pesan sukses
+            if (data.includes("Data berhasil disimpan ke Google Sheet")) {
+                setTimeout(function() {
+                    // Kosongkan form input
+                    document.getElementById('dataForm').reset();
+                    window.location.href = 'index.html'; // Arahkan ke login.html
+                }, 2000);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('result').innerHTML = `<div class="alert alert-danger">Gagal menghubungi API. Silakan coba lagi.</div>`;
+        });
+});
+
+// Menangani pengiriman form login
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Mencegah refresh halaman
+
+    var user = document.getElementById('loginEmail').value; // Menggunakan id loginEmail
+    var password = document.getElementById('loginPassword').value; // Menggunakan id loginPassword
+
+    // Mulai animasi loading pada ikon web
+    startLoadingAnimation();
+
+    // URL API Google Apps Script Anda untuk login
+    var apiUrl = `https://script.google.com/macros/s/AKfycbx1_i6mJBJglgVWKa9QLON6YeKeeqANYMivoyht1YMxNqQPecvYWC_QGFsMQRnFSLgg/exec?action=login&user=${encodeURIComponent(user)}&password=${encodeURIComponent(password)}`;
+
+    // Mengirim permintaan GET ke API
+    fetch(apiUrl)
+        .then(response => response.text())
+        .then(data => {
+            // Hentikan animasi loading
+            stopLoadingAnimation();
+
+            // Cek apakah login berhasil
+            if (data.includes("Login berhasil")) {
+                // Kosongkan form input
+                document.getElementById('loginForm').reset();
+                window.location.href = 'dashboard.html'; // Arahkan ke halaman dashboard jika login berhasil
+            } else {
+                document.getElementById('loginResult').innerHTML = `<div class="alert alert-danger">${data}</div>`;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('loginResult').innerHTML = `<div class="alert alert-danger">Gagal menghubungi API. Silakan coba lagi.</div>`;
+            stopLoadingAnimation(); // Hentikan animasi loading jika terjadi kesalahan
+        });
+});
+
+        // Fungsi untuk mengelola animasi loading pada ikon web
+        const originalFavicon = document.querySelector("link[rel='icon']");
+        let loadingFavicon;
+
+        function startLoadingAnimation() {
+            loadingFavicon = document.createElement('link');
+            loadingFavicon.rel = 'icon';
+            loadingFavicon.href = 'https://cdnjs.cloudflare.com/ajax/libs/twemoji/13.0.1/72x72/1f504.png';
+            document.head.appendChild(loadingFavicon);
+            if (originalFavicon) originalFavicon.remove();
+        }
+
+        function stopLoadingAnimation() {
+            if (loadingFavicon) loadingFavicon.remove();
+            if (originalFavicon) document.head.appendChild(originalFavicon);
+        }
+    </script>
+
+    <script src="src/js/script.js"></script>
+</body>
+</html>
